@@ -1,43 +1,35 @@
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #000;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    text-align: center;
     transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    margin: 20px 0;
 }
 
 .room {
     position: relative;
     width: 300px;
     height: 300px;
+    margin: 20px auto;
     background: radial-gradient(circle at center, #fff 20%, #000 80%);
     border-radius: 50%;
     overflow: hidden;
 }
 
-.spotlight {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .ball {
     width: 50px;
     height: 50px;
-    background-color: red;
+    background-color: orange;
     border-radius: 50%;
     position: absolute;
-    cursor: pointer;
-    animation: bounce 0.5s ease-in-out forwards;
+    bottom: 0;
+    left: calc(50% - 25px);
+    animation: bounce 1s infinite ease-in-out;
 }
 
 @keyframes bounce {
@@ -68,10 +60,25 @@ button:hover {
     background-color: #fff;
     color: #000;
 }
+
 .light-mode .room {
     background: radial-gradient(circle at center, #ccc 20%, #fff 80%);
 }
+
 .light-mode button {
     background-color: #ddd;
     color: #000;
+}
+
+.mouse {
+    position: fixed;
+    bottom: 10px; /* Keep the mouse at the bottom of the screen */
+    left: -100px; /* Start off-screen */
+    font-size: 2rem; /* Make the mouse icon visible and proportional */
+    display: none; /* Initially hidden */
+}
+
+.mouse.active {
+    display: block;
+    left: calc(100vw + 50px);
 }
